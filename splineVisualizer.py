@@ -22,6 +22,8 @@ print(inspect.getmembers(sd, predicate=inspect.ismethod))
 
 xs = sd.getValue("splineY"),
 
+field_img = plt.imread("Field.png")
+
 print(xs)
 while True:
     xs = sd.getNumberArray("splineX", [])
@@ -35,6 +37,10 @@ while True:
     print("————————————————————————————————————————————————————————————————————————————")
 
     if not len(xs) == 0:
-        plt.scatter(xs, ys)
+        fig, ax = plt.subplots()
+        ax.imshow(field_img, extent=(0, 16.48, 0, 8.1))
+
+        ax.scatter(xs, ys)
+
         plt.show()
         break

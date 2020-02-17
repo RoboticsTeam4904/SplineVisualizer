@@ -29,6 +29,9 @@ while True:
     xs = sd.getNumberArray("splineX", [])
     ys = sd.getNumberArray("splineY", [])
 
+    sxs = sd.getNumberArray("startX", [])
+    sys = sd.getNumberArray("startY", [])
+
     print("————————————————————————————————————————————————————————————————————————————")
 
     print(xs)
@@ -40,7 +43,9 @@ while True:
         fig, ax = plt.subplots()
         ax.imshow(field_img, extent=(0, 16.48, 0, 8.1))
 
-        ax.scatter(xs, ys)
+        plt.plot(xs, ys, '-')
+
+        ax.scatter(sxs, sys, s=20, c='r')
 
         plt.show()
         break

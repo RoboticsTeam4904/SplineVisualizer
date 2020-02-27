@@ -31,3 +31,4 @@ for path in paths:
     plt.plot(output["x"], output["y"])
     plt.show()
 
+# m = (x1-x2)/(y2-y1)

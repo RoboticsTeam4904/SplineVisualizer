@@ -14,6 +14,7 @@ def generate_right_turn(x: float) -> float:
 paths = {
         "straight": generate_straight,
         "right_turn": generate_right_turn,
+        "left_turn": lambda x: 1-generate_right_turn(x),
         "sine_wave": lambda x: np.sin(x*10)/2
         }
 

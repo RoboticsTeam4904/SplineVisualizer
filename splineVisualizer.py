@@ -3,34 +3,44 @@ import sys
 import time
 # from networktables import NetworkTables
 import inspect
+import json
 
 # To see messages from networktables, you must setup logging
 import logging
 
-logging.basicConfig(level=logging.DEBUG)
-if len(sys.argv) != 2:
-    print("Error: specify an IP to connect to!")
-    exit(0)
+# logging.basicConfig(level=logging.DEBUG)
+# if len(sys.argv) != 2:
+#     print("Error: specify an IP to connect to!")
+#     exit(0)
 
-ip = sys.argv[1]
+# ip = sys.argv[1]
+data = None
+file_name = "networktable-numbers/straight.json"
+with open(file_name, "r") as rf: 
+
+    data = json.loads(rf.read())
 
 # NetworkTables.initialize(server=ip)
 
+
 # sd = NetworkTables.getTable("splines")
 
-print(inspect.getmembers(sd, predicate=inspect.ismethod))
+# print(inspect.getmembers(sd, predicate=inspect.ismethod))
 
-xs = sd.getValue("splineY"),
+# xs = sd.getValue("splineY"),
 
 field_img = plt.imread("Field.png")
 
-print(xs)
+# print(xs)
 while True:
-    xs = sd.getNumberArray("splineX", [])
-    ys = sd.getNumberArray("splineY", [])
+    # xs = sd.getNumberArray("splineX", [])
+    xs = data["x"]
+    # ys = sd.getNumberArray("splineY", [])
+    ys = data["y"]
 
-    sxs = sd.getNumberArray("startX", [])
-    sys = sd.getNumberArray("startY", [])
+
+    # sxs = sd.getNumberArray("startX", [])
+    # sys = sd.getNumberArray("startY", [])
 
     print("————————————————————————————————————————————————————————————————————————————")
 
@@ -45,7 +55,7 @@ while True:
 
         plt.plot(xs, ys, '-')
 
-        ax.scatter(sxs, sys, s=20, c='r')
+        # ax.scatter(sxs, sys, s=20, c='r')
 
         plt.show()
         break

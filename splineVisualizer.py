@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 import sys
 import time
-from networktables import NetworkTables
+# from networktables import NetworkTables
 import inspect
 
 # To see messages from networktables, you must setup logging
@@ -14,9 +14,9 @@ if len(sys.argv) != 2:
 
 ip = sys.argv[1]
 
-NetworkTables.initialize(server=ip)
+# NetworkTables.initialize(server=ip)
 
-sd = NetworkTables.getTable("splines")
+# sd = NetworkTables.getTable("splines")
 
 print(inspect.getmembers(sd, predicate=inspect.ismethod))
 
